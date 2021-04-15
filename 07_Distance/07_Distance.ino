@@ -14,14 +14,10 @@
   Install Library Sketch>include Library> Add Zip Library
 */
 
-
-
-//#include <Servo.h>
 #include "Ultrasonic.h"
 
 int led = 5;
 
-//Servo myservo;  // create servo object to control a servo
 Ultrasonic ultrasonic(0);
 
 int val;    // variable to read the value from the analog pin
@@ -30,7 +26,6 @@ void setup()
 {
   Serial.begin(9600);
   pinMode(led, OUTPUT);
-//  myservo.attach(4);  // attaches the servo on pin 4 to the servo object
 
 }
 void loop()
@@ -38,7 +33,6 @@ void loop()
   long RangeInCentimeters;
   RangeInCentimeters = ultrasonic.MeasureInCentimeters(); // two measurements should keep an interval
   Serial.println(RangeInCentimeters);//0~400cm
-  val = map(RangeInCentimeters, 0, 250, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
- // myservo.write(val);
+
   delay(25);
 }
